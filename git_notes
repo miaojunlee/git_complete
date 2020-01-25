@@ -94,6 +94,8 @@ P4Merge
 - To compare between staging area and the Git Repo: git diff --staged HEAD 
 - To compare between staging area and the git repo on a single file: git difftool --staged HEAD -- test_python_code.ipynb
 - To compare against different commit: git diff HEAD HEAD^ | git diff commitkey1 commitkey2
+- To compare between local and remote master branches: git difftool master origin/master
+
  
 To config P4Merge as the default tool: 
 git config --global -e
