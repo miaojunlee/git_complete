@@ -91,6 +91,9 @@ P4Merge
 - Set environment variable under advanced settings (add the path of P4Merge to the path) 
 - To compare files between staging and working directory: git difftool 
 - To compare working directory and the staging area(last commit): git difftool HEAD
+- To compare between staging area and the Git Repo: git diff --staged HEAD 
+- To compare between staging area and the git repo on a single file: git difftool --staged HEAD -- test_python_code.ipynb
+- To compare against different commit: git diff HEAD HEAD^ | git diff commitkey1 commitkey2
  
 To config P4Merge as the default tool: 
 git config --global -e
