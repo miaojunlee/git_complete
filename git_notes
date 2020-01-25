@@ -89,7 +89,8 @@ How to make Git “forget” about a file that was tracked but is now in .gitign
 P4Merge
 - Download from perforce.com find P4Merge (windows 64-bit)
 - Set environment variable under advanced settings (add the path of P4Merge to the path) 
-- To compare files: git difftool 
+- To compare files between staging and working directory: git difftool 
+ 
 
 
 
