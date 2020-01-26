@@ -113,7 +113,11 @@ Branching & Merging
 - switch branch: git checkout newbranch
 - rename branch: git branch -m newbranch mynewbranch
 - to delete branch: git branch -d newbranch
-- create a new branch and switch to the new branch: git checkout -b newbranch
+- create a new branch and switch to the new branch: git checkout -b newbranch (at this point all the changes are made under newbranch)
+- compare between different branches: git difftool master newbranch 
+- merge with the new branch: 1) switch it back to master 2) git merge newbranch
+- merge commit with fast forward disabled : git merge master newbranch --no-ff 
+- after merge, delete the old branch and create another one. Reset timeline.
 
 
 …or create a new repository on the command line
