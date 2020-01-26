@@ -86,7 +86,9 @@ Ignore Unwanted File
 
 How to make Git “forget” about a file that was tracked but is now in .gitignore: git rm --cached *.pptx
 
-P4Merge
+Streamline commit: git commit -am "commit message"
+
+Comparisons: P4Merge
 - Download from perforce.com find P4Merge (windows 64-bit)
 - Set environment variable under advanced settings (add the path of P4Merge to the path) 
 - To compare files between staging and working directory: git difftool 
@@ -104,8 +106,14 @@ Add this line:
 [diff]
 	tool = p4merge
 
-
-
+Branching & Merging
+- list all local branches: git branch
+- list all branches including remote branches: git branch -a
+- create a new branch: git branch newbranch
+- switch branch: git checkout newbranch
+- rename branch: git branch -m newbranch mynewbranch
+- to delete branch: git branch -d newbranch
+- create a new branch and switch to the new branch: git checkout -b newbranch
 
 
 …or create a new repository on the command line
