@@ -118,6 +118,7 @@ Branching & Merging
 - merge with the new branch: 1) switch it back to master 2) git merge newbranch
 - merge commit with fast forward disabled : git merge master newbranch --no-ff 
 - after merge, delete the old branch and create another one. Reset timeline.
+- automatic change: this is to test merge tool
 
 
 …or create a new repository on the command line
