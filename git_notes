@@ -118,10 +118,15 @@ Branching & Merging
 - merge with the new branch: 1) switch it back to master 2) git merge newbranch -m "commit message"
 - merge commit with fast forward disabled : git merge master newbranch --no-ff 
 - after merge, delete the old branch and create another one. Reset timeline.
-- automatic merge: git mergetool
+- automatic merge:
 
 Merge conflict and resolution:
-- when merging with conflict: git mergetool 
+- first run: git merge newbranch (if there's conflict it will be reported CONFLICT)
+- when merging with conflict: git mergetool, manually pick the changes you want to make, save the changes
+- run this: git commit -am "resolve conflict"
+
+
+=======
 
 
 …or create a new repository on the command line
