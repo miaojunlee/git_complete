@@ -125,6 +125,16 @@ Merge conflict and resolution:
 - when merging with conflict: git mergetool, manually pick the changes you want to make, save the changes
 - run this: git commit -am "resolve conflict"
 
+Rebasing: Incorporate the changes that occur to master while you have been working in the sub-branch
+- git rebase master (source branch)
+- apply all changes made in the sub-branch : git commit --am "message"
+- switch back to master and merge: git difftool, git merge subbranch
+- to abort a rebase: git rebase --abort 
+- to resolve a rebasing conflict: git mergetool, manually change
+- git add filename
+- git rebase --continue
+- integrate the changes with master: git merge subbranch
+
 
 =======
 
