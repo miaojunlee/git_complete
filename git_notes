@@ -138,8 +138,8 @@ Rebasing: Incorporate the changes that occur to master while you have been worki
 - git add filename
 - git rebase --continue
 - integrate the changes with master: git merge subbranch
-
-
+- git fetch is an non-destructive way to update the reference between the remote repository and the local repository
+- git pull --rebase origin master
 =======
 
 
