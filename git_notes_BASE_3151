@@ -1,0 +1,168 @@
+Git Notes 
+
+Step 1:  Download Git Bash
+Step 2:  Set up username and email in the git bash terminal 
+	     git config -global user.name “June Li”
+         git config -global user.email xxx@gmail.com
+
+Step 3: Initialize a local repo
+•	Go to local directory or make a directory: cd dir
+•	Point to the local directory and initialize git: git init
+•	Add all file in the local dir to git: git add . 
+•	Show status: git status
+•	Check log: git log
+•	Commit: git commit -m “comments”
+•	Enter commands on notepad++
+•	Check log: git log
+•	git remote add origin: https://github.com/miaojunlee/xxx 
+•	Update local repo to make sure local repo has up to date with the remote repo: git pull origin master (always do a pull before push)
+•	Push the remote repo (origin) under the master branch: git push -u origin master 
+
+Clone 
+•	Git clone repo url 
+
+Merge
+To merge local repo with an existing git repo
+•	git remote add origin: https://github.com/miaojunlee/xxx 
+•	Run a pull first: git pull –allowed-unrelated-histories
+•	Set branch: git branch –set -upstream-to=origin/master master 
+•	Push files: git push 
+
+
+To edit global config file
+•	Go to master directory: cd 
+•	npp .gitconfig 
+
+To combine add and commit into one line: git commit -am “comments”
+
+To track a file: git ls-files (ls list files in the local directory, git ls-files lists files in git staging) 
+
+To remove a stage change: git reset HEAD filename 
+
+Recover File
+To recover a deleted file but still available in staging: git checkout filename 
+To backout changes: git checkout --filename
+To recover a deleted file that has also been committed: 
+
+1.	git log to find the key
+2.	git checkout 04f788928d8b2b9ea5c1cc6b945b4ce15aa1f033^ --  testv2.txt
+3.	to read the file from git: git show HEAD:filename 
+
+•	git rm filename 
+•	To un-staged the delete: git reset HEAD filename (spell it out) (this is considered a staging change)
+•	To recover the file from staging: Git checkout -- filename 
+
+
+Rename
+•	To rename the current file name: git mv oldfilename newfilename
+•	To rename the name at the system level: mv oldname newname
+•	Git add -A (recursively add changes but also update any file that has been renamed, moved or deleted)
+
+Delete File
+•	Delete a file not being tracked by git: rm file
+•	Delete a file being tracked by git: git rm file, followed by git commit
+
+Delete files using bash command: 
+•	rm filename
+•	git add -A
+•	git commit
+
+To remove folder: rm -rf foldername (be very careful with this change)
+
+History
+•	git log
+•	git log --abbrev-commit
+•	git log --all --oneline --graph –decorate
+•	git log e36c22c...55bd792
+•	git log --since=”3 days ago”
+•	git log --filename 
+•	git show commitID
+
+Alias
+•	git config --global alias.hist “git --all --oneline --graph --decorate”
+
+Ignore Unwanted File
+•	npp .gitignore 
+
+How to make Git “forget” about a file that was tracked but is now in .gitignore: git rm --cached *.pptx
+
+Streamline commit: git commit -am "commit message"
+
+Comparisons: P4Merge
+- Download from perforce.com find P4Merge (windows 64-bit)
+- Set environment variable under advanced settings (add the path of P4Merge to the path) 
+- To compare files between staging and working directory: git difftool 
+- To compare working directory and the staging area(last commit): git difftool HEAD
+- To compare between staging area and the Git Repo: git diff --staged HEAD 
+- To compare between staging area and the git repo on a single file: git difftool --staged HEAD -- test_python_code.ipynb
+- To compare against different commit: git diff HEAD HEAD^ | git diff commitkey1 commitkey2
+- To compare between local and remote master branches: git difftool master origin/master
+
+ 
+To config P4Merge as the default tool: 
+git config --global -e
+
+Add this line: 
+[diff]
+	tool = p4merge
+
+Branching & Merging
+- list all local branches: git branch
+- list all branches including remote branches: git branch -a
+- create a new branch: git branch newbranch
+- switch branch: git checkout newbranch
+- rename branch: git branch -m newbranch mynewbranch
+- to delete branch: git branch -d newbranch
+- create a new branch and switch to the new branch: git checkout -b newbranch (at this point all the changes are made under newbranch)
+- compare between different branches: git difftool master newbranch 
+- merge with the new branch: 1) switch it back to master 2) git merge newbranch -m "commit message"
+- merge commit with fast forward disabled : git merge master newbranch --no-ff 
+- after merge, delete the old branch and create another one. Reset timeline.
+- automatic merge:
+
+Merge conflict and resolution:
+- first run: git merge newbranch (if there's conflict it will be reported CONFLICT)
+- when merging with conflict: git mergetool, manually pick the changes you want to make, save the changes
+- run this: git commit -am "resolve conflict"
+
+Rebasing: Incorporate the changes that occur to master while you have been working in the sub-branch
+- git rebase master (source branch)
+- apply all changes made in the sub-branch : git commit --am "message"
+- switch back to master and merge: git difftool, git merge subbranch
+- to abort a rebase: git rebase --abort 
+- to resolve a rebasing conflict: git mergetool, manually change
+- git add filename
+- git rebase --continue
+- integrate the changes with master: git merge subbranch
+
+
+=======
+
+
+…or create a new repository on the command line
+echo "# tensorflow_bootcamp" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/miaojunlee/tensorflow_bootcamp.git
+git push -u origin master
+…or push an existing repository from the command line
+git remote add origin https://github.com/miaojunlee/tensorflow_bootcamp.git
+git push -u origin master
+…or import code from another repository
+You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
+
+
+You can also use git init project_name 
+List all files including hidden files : ls – al
+Rm -rf foldername 
+•	To copy repo from others: find a repo and click on fork; go to Git Bash and type in git clone url 
+•	To go to the git folder: cd .git/
+•	To remove a file from git staging: git rm –cached filename
+•	To ignore the files from git add ., type: npp .gitignore (list the files want to ignore in the notepad++)
+•	To manually add a file that listed in the .gitignore, use: git add -f filename 
+•	To remove a repo on Github, go to Danger Zone and delete the repo; also, on Git Bash: git remove remote origin 
+•	When encounter remote commit has more files than local, use: git pull
+
+
+
