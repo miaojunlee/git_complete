@@ -107,6 +107,8 @@ git config --global -e
 Add this line: 
 [diff]
 	tool = p4merge
+[merge]
+	tool = p4merge
 
 Branching & Merging
 - list all local branches: git branch
