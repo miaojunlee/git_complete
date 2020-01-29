@@ -160,6 +160,18 @@ Stashing into a branch
 - save working directory and index state WIP on master including untracked files: git stash -u
 - apply the stash to the branch: git stash branch newbranch (several things happened at the same time: create new branch, apply stash change to the new branch and drop the stash)
 
+Tagging: Tags are ref's that point to specific points in Git history. Tagging is generally used to capture a point in history that is used for a marked version release (i.e. v1. 0.1). A tag is like a branch that doesn't change.
+Tagging is created to mark a milestone, version in source code (associated with commit). Tag is nothing more than labels. 
+- create a lightway tag: git tag myTag
+- list tags: git tag --list 
+- git show myTag
+- git tag --delete myTag
+
+Annotated Tags: provides more information
+- git tag -a v-1.0
+- compare tags: git difftool v-1.0 v-2.0
+- tagging a specific commit: git tag -a v-0.9-beta commitkey
+
 =======
 
 
