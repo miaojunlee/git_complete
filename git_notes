@@ -140,6 +140,26 @@ Rebasing: Incorporate the changes that occur to master while you have been worki
 - integrate the changes with master: git merge subbranch
 - git fetch is an non-destructive way to update the reference between the remote repository and the local repository
 - git pull --rebase origin master
+
+
+Stashing: Put away the work-in-progress change without commit 
+- switch geer to something of higher priority: git stash save
+- switch it back: git stash apply 
+- git commit -am "message"
+- git stash list
+- drop the last stash: git stash drop
+- to stash untracked file: git stash -u 
+- to combine git stash apply and git stash drop in one step: git stash pop
+- to handle multiple stashes: git stash save "messages to identify which is which"
+- to show a specific stash: git stash show stash@{1}
+- to apply a specific stash: git stash apply stash@{1}
+- git stash drop stash@{1}
+- to drop all stashes: git stash clear
+
+Stashing into a branch
+- save working directory and index state WIP on master including untracked files: git stash -u
+- apply the stash to the branch: git stash branch newbranch (several things happened at the same time: create new branch, apply stash change to the new branch and drop the stash)
+
 =======
 
 
