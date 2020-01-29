@@ -169,8 +169,11 @@ Tagging is created to mark a milestone, version in source code (associated with 
 
 Annotated Tags: provides more information
 - git tag -a v-1.0
-- compare tags: git difftool v-1.0 v-2.0
+
+Compare tags: 
+- git difftool v-1.0 v-2.0
 - tagging a specific commit: git tag -a v-0.9-beta commitkey
+- update tag: git tag -a v-0.8-alpha -f CorrectCommitID
 
 =======
 
